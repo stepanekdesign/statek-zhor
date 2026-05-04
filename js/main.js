@@ -43,10 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Define markers
         const brno = L.marker([49.1951, 16.6068]).bindPopup('<b>Brno</b>');
-        const prostejov = L.marker([49.4719, 17.1118]).bindPopup('<b>Prostějov</b>');
+        const urcice = L.marker([49.424, 17.067]).bindPopup('<b>Určice</b>');
         const zhor = L.marker([49.4147, 16.4789]).bindPopup('<b>Zhoř</b><br>Statek Zhoř');
 
-        const group = L.featureGroup([brno, prostejov, zhor]).addTo(map);
+        const group = L.featureGroup([brno, urcice, zhor]).addTo(map);
         map.fitBounds(group.getBounds().pad(0.2));
         zhor.openPopup();
     }
