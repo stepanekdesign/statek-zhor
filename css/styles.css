@@ -361,7 +361,7 @@ p {
     margin-bottom: 0;
 }
 
-.wave-top, .wave-bottom {
+.wave-top, .wave-bottom, .wave-top-footer {
     width: 100%;
     overflow: hidden;
     line-height: 0;
@@ -378,10 +378,18 @@ p {
     z-index: 1;
 }
 
-.wave-top svg, .wave-bottom svg {
+.wave-top svg, .wave-bottom svg, .wave-top-footer svg {
     display: block;
     width: calc(100% + 1.3px);
     height: 80px;
+    animation: honeyFlow 6s ease-in-out infinite;
+    transform-origin: center center;
+}
+
+@keyframes honeyFlow {
+    0% { transform: scaleX(1.1) translateX(0); }
+    50% { transform: scaleX(1.25) translateX(-4%); }
+    100% { transform: scaleX(1.1) translateX(0); }
 }
 
 .highlights-content {
@@ -555,4 +563,15 @@ p {
 }
 .lightbox-close:hover {
     color: #bbb;
+}
+
+/* Scroll Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }

@@ -7,13 +7,34 @@
     <title>Statek Zhoř | Poctivý přírodní med</title>
 
     <meta name="description"
-        content="Statek Zhoř - ruční výroba poctivého českého medu. Přímo od farmáře Jana Pařízka. Objevte chuť přírody z regionů Brno, Prostějov a Zhoř.">
+        content="Statek Zhoř - ruční výroba poctivého českého medu. Přímo od farmářů Jana a Tomáše Pařízků. Objevte chuť přírody ze Statku Zhoř.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
+
+    <!-- Structured Data (LocalBusiness) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Statek Zhoř",
+      "image": "https://statekzhor.cz/images/sz-logo-color.svg",
+      "description": "Ruční výroba poctivého českého medu.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Zhoř 6",
+        "addressLocality": "Zhoř",
+        "postalCode": "679 23",
+        "addressCountry": "CZ"
+      },
+      "telephone": "+420730663299",
+      "url": "https://statekzhor.cz"
+    }
+    </script>
 
     <!-- Leaflet CSS & JS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -76,34 +97,34 @@
         <section class="image-strip">
             <div class="marquee-wrapper">
                 <div class="marquee-content" id="marquee-content">
-                    <img src="images/zhor-01.jpg" alt="Ze statku 1" class="marquee-img"
+                    <img src="images/zhor-01.jpg" alt="Ze statku 1" class="marquee-img" loading="lazy"
                         data-lightbox-src="images/zhor-01-large.jpg">
-                    <img src="images/zhor-02.jpg" alt="Ze statku 2" class="marquee-img"
+                    <img src="images/zhor-02.jpg" alt="Ze statku 2" class="marquee-img" loading="lazy"
                         data-lightbox-src="images/zhor-02-large.jpeg">
-                    <img src="images/zhor-03.jpg" alt="Ze statku 3" class="marquee-img"
+                    <img src="images/zhor-03.jpg" alt="Ze statku 3" class="marquee-img" loading="lazy"
                         data-lightbox-src="images/zhor-03-large.jpeg">
-                    <img src="images/zhor-04.jpg" alt="Ze statku 4" class="marquee-img"
+                    <img src="images/zhor-04.jpg" alt="Ze statku 4" class="marquee-img" loading="lazy"
                         data-lightbox-src="images/zhor-04-large.jpeg">
-                    <img src="images/zhor-05.jpg" alt="Ze statku 5" class="marquee-img"
+                    <img src="images/zhor-05.jpg" alt="Ze statku 5" class="marquee-img" loading="lazy"
                         data-lightbox-src="images/zhor-05-large.jpeg">
-                    <img src="images/zhor-06.jpg" alt="Ze statku 6" class="marquee-img"
+                    <img src="images/zhor-06.jpg" alt="Ze statku 6" class="marquee-img" loading="lazy"
                         data-lightbox-src="images/zhor-06-large.jpeg">
-                    <img src="images/zhor-07.jpg" alt="Ze statku 7" class="marquee-img"
+                    <img src="images/zhor-07.jpg" alt="Ze statku 7" class="marquee-img" loading="lazy"
                         data-lightbox-src="images/zhor-07-large.jpg">
-                    <img src="images/zhor-08.jpg" alt="Ze statku 8" class="marquee-img"
+                    <img src="images/zhor-08.jpg" alt="Ze statku 8" class="marquee-img" loading="lazy"
                         data-lightbox-src="images/zhor-08-large.jpeg">
-                    <img src="images/zhor-09.jpg" alt="Ze statku 9" class="marquee-img"
+                    <img src="images/zhor-09.jpg" alt="Ze statku 9" class="marquee-img" loading="lazy"
                         data-lightbox-src="images/zhor-09-large.jpeg">
-                    <img src="images/zhor-10.jpg" alt="Ze statku 10" class="marquee-img"
+                    <img src="images/zhor-10.jpg" alt="Ze statku 10" class="marquee-img" loading="lazy"
                         data-lightbox-src="images/zhor-10-large.jpg">
-                    <img src="images/zhor-11.jpg" alt="Ze statku 11" class="marquee-img"
+                    <img src="images/zhor-11.jpg" alt="Ze statku 11" class="marquee-img" loading="lazy"
                         data-lightbox-src="images/zhor-11-large.jpeg">
                 </div>
             </div>
         </section>
 
         <!-- HIGHLIGHTS SECTION -->
-        <section class="highlights-section">
+        <section class="highlights-section fade-in">
             <div class="wave-top">
                 <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
                     <path d="M0,60 C320,120 420,0 720,60 C1020,120 1120,0 1440,60 L1440,120 L0,120 Z" fill="#f4efe6">
@@ -157,7 +178,7 @@
         </section>
 
         <!-- HONEY CONTENT SECTION -->
-        <section id="med" class="section-padding center-content white-bg">
+        <section id="med" class="section-padding center-content white-bg fade-in">
             <div class="container">
                 <div class="section-header">
                     <img src="images/rucni-vyroba@2x.jpg" alt="Ruční výroba" class="leaf-icon">
@@ -168,7 +189,7 @@
                     průmyslovými úpravami. Je stáčen za studena, aby si zachoval všechny vitamíny, minerály a blahodárné
                     enzymy.</p>
 
-                <img src="images/honey.png" alt="Sklenice našeho medu" class="large-image">
+                <img src="images/honey.png" alt="Sklenice našeho medu" class="large-image" loading="lazy">
 
                 <h3>Od květiny až do sklenice</h3>
                 <p class="max-w-text">Každá kapka medu je výsledkem usilovné práce našich včel a poctivé lidské práce.
@@ -178,7 +199,7 @@
         </section>
 
         <!-- REGION SECTION -->
-        <section id="mapa" class="section-padding center-content white-bg">
+        <section id="mapa" class="section-padding center-content white-bg fade-in">
             <div class="container">
                 <div class="section-header">
                     <img src="images/kde-nas-najdete@2x.jpg" alt="Kde nás najdete" class="leaf-icon">
