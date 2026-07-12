@@ -132,4 +132,44 @@ document.addEventListener('DOMContentLoaded', () => {
             appearOnScroll.observe(fader);
         });
     }
+
+    // 7. PDF Lightbox
+    const pdfLightbox = document.getElementById('pdf-lightbox');
+    const pdfFrame = document.getElementById('pdf-frame');
+    const pdfClose = document.querySelector('.pdf-lightbox-close');
+
+    if (pdfLightbox && pdfFrame && pdfClose) {
+        const openPdf = (src) => {
+            pdfFrame.src = src;
+            pdfLightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            pdfClose.focus();
+        };
+
+        const closePdf = () => {
+            pdfLightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            // Small delay so the fade-out plays before clearing the src
+            setTimeout(() => { pdfFrame.src = ''; }, 300);
+        };
+
+        document.querySelectorAll('.cert-tile').forEach(tile => {
+            tile.addEventListener('click', () => {
+                const pdf = tile.getAttribute('data-pdf');
+                if (pdf) openPdf(pdf);
+            });
+        });
+
+        pdfClose.addEventListener('click', closePdf);
+
+        pdfLightbox.addEventListener('click', (e) => {
+            if (e.target === pdfLightbox) closePdf();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && pdfLightbox.classList.contains('active')) {
+                closePdf();
+            }
+        });
+    }
 });

@@ -683,3 +683,151 @@ p {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* ── Certification tiles ── */
+.cert-heading {
+    margin-top: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0.25rem 0 3.5rem;
+}
+
+.cert-tile {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    background: #fff;
+    border: 1.5px solid var(--color-border);
+    border-radius: 16px;
+    padding: 1.5rem 1.75rem;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    font-family: inherit;
+    color: inherit;
+    width: 100%;
+    position: relative;
+    /* remove default button chrome */
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.cert-tile:hover,
+.cert-tile:focus-visible {
+    border-color: var(--color-primary);
+    box-shadow: 0 6px 24px rgba(32, 99, 59, 0.10);
+    transform: translateY(-2px);
+    outline: none;
+}
+
+.cert-tile__icon {
+    flex: 0 0 auto;
+    width: 48px;
+    height: 48px;
+    background-color: var(--color-secondary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+}
+
+.cert-tile__icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.cert-tile__body {
+    flex: 1;
+    min-width: 0;
+}
+
+.cert-tile__body h4 {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.cert-tile__body p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    color: #6b7a70;
+    line-height: 1.4;
+}
+
+.cert-tile__cta {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(4px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.cert-tile:hover .cert-tile__cta,
+.cert-tile:focus-visible .cert-tile__cta {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (max-width: 640px) {
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cert-tile__cta {
+        display: none;
+    }
+}
+
+/* ── PDF Lightbox ── */
+.pdf-lightbox {
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.pdf-lightbox__frame-wrap {
+    width: 100%;
+    max-width: 900px;
+    height: 85vh;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 48px rgba(0, 0, 0, 0.5);
+    background: #fff;
+}
+
+.pdf-lightbox__frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.pdf-lightbox-close {
+    background: none;
+    border: none;
+    font-family: inherit;
+}
+
+@media (max-width: 640px) {
+    .pdf-lightbox {
+        padding: 1rem;
+    }
+
+    .pdf-lightbox__frame-wrap {
+        height: 80vh;
+    }
+}
