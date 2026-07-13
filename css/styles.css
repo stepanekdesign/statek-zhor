@@ -691,8 +691,9 @@ p {
 }
 
 .cert-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1.25rem;
     max-width: 800px;
     margin: 0 auto;
@@ -712,7 +713,10 @@ p {
     transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
     font-family: inherit;
     color: inherit;
-    width: 100%;
+    /* flex child sizing: fills row up to ~half the grid, never stretches alone */
+    flex: 1 1 calc(50% - 0.625rem);
+    max-width: 380px;
+    min-width: 260px;
     position: relative;
     /* remove default button chrome */
     -webkit-appearance: none;
@@ -783,8 +787,9 @@ p {
 }
 
 @media (max-width: 640px) {
-    .cert-grid {
-        grid-template-columns: 1fr;
+    .cert-tile {
+        flex: 1 1 100%;
+        max-width: 100%;
     }
 
     .cert-tile__cta {
