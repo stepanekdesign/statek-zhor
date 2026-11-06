@@ -1,0 +1,52 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Nastavení oprávnění pro token GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Povolit pouze jedno souběžné nasazení
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repozitáře
+        uses: actions/checkout@v4
+
+      - name: Vložení CARTO API klíče
+        env:
+          CARTO_API_KEY: ${{ secrets.CARTO_API_KEY }}
+        run: |
+          node -e '
+            const fs = require("fs");
+            let file = fs.readFileSync("js/main.js", "utf8");
+            file = file.replaceAll("__CARTO_API_KEY__", () => process.env.CARTO_API_KEY || "");
+            fs.writeFileSync("js/main.js", file);
+          '
+
+      - name: Konfigurace GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Nahrání artefaktu webu
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Nasazení na GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+

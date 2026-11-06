@@ -36,8 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mapElement) {
         const map = L.map('map');
         
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        const cartoApiKey = window.CARTO_API_KEY || '__CARTO_API_KEY__';
+        const hasKey = cartoApiKey && !cartoApiKey.startsWith('__');
+        const tileUrl = hasKey
+            ? `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=${cartoApiKey}`
+            : 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
+
+        L.tileLayer(tileUrl, {
             maxZoom: 19,
+            subdomains: 'abcd',
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
         }).addTo(map);
 
